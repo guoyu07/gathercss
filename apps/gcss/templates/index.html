@@ -1,29 +1,24 @@
-{{#use "xheditor"}}
+
+{{extend "base.html"}}
+
+{{block content}}
+
 {{<<form}}
 <hr>
 
 {{for n in gacss:}}
 <div class="panel">
-<div>
-{{=n.title}}---<a href=/delete/{{=n.id}}> 删除</a></p>{{<<n.content}}
-</div>
-<textarea rows=10 cols=80>{{=n.csscode}}</textarea>
-<textarea rows=10 cols=80>{{=n.jscode}}</textarea>
-<textarea rows=10 cols=80>{{=n.examplecode}}</textarea>
-<iframe src=/src/{{=n.id}}></iframe>
-</div>
+ <div class="panel-content">
+  <div>
+	{{=n.title}}---<a href=/delete/{{=n.id}}> 删除</a></p>{{<<n.content}}
+   </div>
+   <textarea rows=10 cols=80>{{=n.csscode}}</textarea>
+   <textarea rows=10 cols=80>{{=n.jscode}}</textarea>
+   <textarea rows=10 cols=80>{{=n.examplecode}}</textarea>
+   <iframe src=/src/{{=n.id}}></iframe>
+
+ </div><!--panel-content-->
+</div> <!--panel-->
 {{pass}}
 
-{{include "inc_xheditor_plugins.html"}}
-<script type="text/javascript">
-    $(function(){
-        $('textarea').xheditor({
-            tools:'Cut,Copy,Paste,Pastetext,|,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,|,Align,List,Outdent,Indent,|,Link,Unlink,Anchor,Img,Flash,Hr,Emot,Table,Code,Quote,|,About',
-            skin:'default',
-            upFlashExt:"swf",
-            plugins:plugins,
-            height:300,
-            width:600,
-        });
-    });
-</script>
+{{end}}
