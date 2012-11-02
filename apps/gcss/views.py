@@ -24,6 +24,13 @@ def delete(id):
 		n.delete()
 	return redirect('/');
 
+@expose('/src/<id>')
+def src(id):
+	n=gcss.get(gcss.c.id==id)
+	if n:
+		return {'n':n}
+	return redirect('/')
+
 @expose('/edit/<id>')
 def edit(id):
 	if request.method == 'GET':
