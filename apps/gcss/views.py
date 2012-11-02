@@ -44,6 +44,7 @@ def edit(id):
 		if n:
 			n.title = form.data.title
 			n.content = form.data.content
-			n.code = form.data.code
+			n.csscode = form.data.csscode
+			n.jscode = form.data.jscode
 			n.save()
 		return redirect('/');

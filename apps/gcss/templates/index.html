@@ -4,8 +4,13 @@
 
 {{for n in gacss:}}
 <div class="panel">
-<div>{{=n.title}}---<a href=/delete/{{=n.id}}> 删除</a></p>{{<<n.content}}</div>
-<textarea rows=10 cols=80>{{=n.code}}</textarea><iframe src=/src/{{=n.id}}></iframe>
+<div>
+{{=n.title}}---<a href=/delete/{{=n.id}}> 删除</a></p>{{<<n.content}}
+</div>
+<textarea rows=10 cols=80>{{=n.csscode}}</textarea>
+<textarea rows=10 cols=80>{{=n.jscode}}</textarea>
+<textarea rows=10 cols=80>{{=n.examplecode}}</textarea>
+<iframe src=/src/{{=n.id}}></iframe>
 </div>
 {{pass}}
 
