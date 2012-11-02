@@ -6,6 +6,7 @@ from forms import GcssForm
 from uliweb import function
 
 
+
 @expose('/')
 def index():
 	gacss = gcss.all()
@@ -16,6 +17,16 @@ def index():
 			n = gcss(**form.data)
 			n.save();
 	return {'gacss':gacss,'form':form}
+
+@expose('/css')
+def css():
+	gacss=gcss.all()
+	return {'gacss':gacss}
+
+@expose('/js')
+def js():
+	gacss=gcss.all()
+	return {'gacss':gacss}
 
 @expose('/delete/<id>')
 def delete(id):
