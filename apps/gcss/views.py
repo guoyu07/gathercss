@@ -8,7 +8,7 @@ from uliweb import function
 
 
 @expose('/gcss')
-def gcss():
+def gcss_index():
 	gacss = gcss.all()
 	return {'gacss':gacss}
 
