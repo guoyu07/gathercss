@@ -7,3 +7,4 @@ class gcss (Model):
 	csscode=Field(TEXT)
 	jscode=Field(TEXT)
 	examplecode=Field(TEXT)
+	status=Field(CHAR)

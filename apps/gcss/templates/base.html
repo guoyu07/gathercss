@@ -1,21 +1,10 @@
-<html>
-<head>
-<title> 智普公益的 CSS,JS收集系统</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="智普公益CSS，JS收集" />
-<link href="{{=url_for_static('bootstrap/2.0.4/bootstrap.css')}}" rel="stylesheet" type="text/css" / >
 
-</head>
+{{extend "gcss_layout.html"}}
+{{block before_header}}
 
-<body class="bootstrap-body">
-<div class="container">
-    <div class="content-outter">
-{{block content}}
-{{end content}}
-    </div>
-</div>
-</body>
-</html>
+{{link "bootstrap_extend.css"}}
+{{link "bootheme/bootheme.css"}}
+{{end}}
 
-
-
+{{block content_main}}
+{{end}}

@@ -1,24 +1,28 @@
 
 {{extend "base.html"}}
+{{block title}}GSS,自助CSS样式库{{end}}
 
-{{block content}}
 
-{{<<form}}
+{{block content_main}}
+
+<div class="well">  这是一个自助的CSS样式库，欢迎您测试自己的CSS，JS；优秀的作品可以直接保存。
+<p class='pull-right'><a class='btn btn-warning' href=/new> 添加新样式</a></p>
+</div>
+
 <hr>
-
 {{for n in gacss:}}
 <div class="panel">
+<div class="panel-header">
+	{{=n.title}}<p class='pull-right'>
+       <a class='btn btn-inverse' href=/display/{{=n.id}}>查看源代码</a></p>
+</div>
  <div class="panel-content">
   <div>
-	{{=n.title}}---<a href=/delete/{{=n.id}}> 删除</a></p>{{<<n.content}}
+	{{<<n.content}}
    </div>
-   <textarea rows=10 cols=80>{{=n.csscode}}</textarea>
-   <textarea rows=10 cols=80>{{=n.jscode}}</textarea>
-   <textarea rows=10 cols=80>{{=n.examplecode}}</textarea>
-   <iframe src=/src/{{=n.id}}></iframe>
-
+   <div><iframe width=100% height=100% src=/src/{{=n.id}}></iframe></div>
  </div><!--panel-content-->
 </div> <!--panel-->
 {{pass}}
-
+</div>
 {{end}}

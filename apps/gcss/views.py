@@ -10,13 +10,17 @@ from uliweb import function
 @expose('/')
 def index():
 	gacss = gcss.all()
-	form = GcssForm()
-	if request.method == 'POST':
-		flag = form.validate(request.params)
-		if flag:
-			n = gcss(**form.data)
-			n.save();
-	return {'gacss':gacss,'form':form}
+	return {'gacss':gacss}
+
+@expose('/new')
+def new():
+        form = GcssForm()
+        if request.method == 'POST':
+                flag = form.validate(request.params)
+                if flag:
+                        n = gcss(**form.data)
+                        n.save();
+	return {'form':form}
 
 @expose('/css')
 def css():
@@ -37,6 +41,13 @@ def delete(id):
 
 @expose('/src/<id>')
 def src(id):
+	n=gcss.get(gcss.c.id==id)
+	if n:
+		return {'n':n}
+	return redirect('/')
+	
+@expose('/display/<id>')
+def display(id):
 	n=gcss.get(gcss.c.id==id)
 	if n:
 		return {'n':n}
