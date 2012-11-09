@@ -7,12 +7,12 @@ from uliweb import function
 
 
 
-@expose('/')
-def index():
+@expose('/gcss')
+def gcss():
 	gacss = gcss.all()
 	return {'gacss':gacss}
 
-@expose('/new')
+@expose('/gcss/new')
 def new():
         form = GcssForm()
         if request.method == 'POST':
@@ -22,38 +22,38 @@ def new():
                         n.save();
 	return {'form':form}
 
-@expose('/css')
+@expose('/gcss/css')
 def css():
 	gacss=gcss.all()
 	return {'gacss':gacss}
 
-@expose('/js')
+@expose('/gcss/js')
 def js():
 	gacss=gcss.all()
 	return {'gacss':gacss}
 
-@expose('/delete/<id>')
+@expose('/gcss/delete/<id>')
 def delete(id):
 	n = gcss.get(gcss.c.id == id)
 	if n:
 		n.delete()
-	return redirect('/');
+	return redirect('/gcss');
 
-@expose('/src/<id>')
+@expose('/gcss/src/<id>')
 def src(id):
 	n=gcss.get(gcss.c.id==id)
 	if n:
 		return {'n':n}
-	return redirect('/')
+	return redirect('/gcss')
 	
-@expose('/display/<id>')
+@expose('/gcss/display/<id>')
 def display(id):
 	n=gcss.get(gcss.c.id==id)
 	if n:
 		return {'n':n}
-	return redirect('/')
+	return redirect('/gcss')
 
-@expose('/edit/<id>')
+@expose('/gcss/edit/<id>')
 def edit(id):
 	if request.method == 'GET':
 		p = gcss.get(gcss.c.id==id)
@@ -69,4 +69,4 @@ def edit(id):
 			n.csscode = form.data.csscode
 			n.jscode = form.data.jscode
 			n.save()
-		return redirect('/');
+		return redirect('/gcss');
