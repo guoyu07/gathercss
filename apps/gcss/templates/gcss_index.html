@@ -17,8 +17,8 @@
        <a class='btn btn-inverse' href=/gcss/display/{{=n.id}}>查看源代码</a></p>
 </div>
  <div class="panel-content">
-  <div>
-	{{<<n.content}}
+  <div>{{from uliweb.utils.textconvert import text2html}}
+        {{<<text2html(n.content)}}
    </div>
    <div><iframe width=100% height=100% src=/gcss/src/{{=n.id}}></iframe></div>
  </div><!--panel-content-->
