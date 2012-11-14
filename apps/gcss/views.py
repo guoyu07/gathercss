@@ -19,8 +19,13 @@ def new():
                 flag = form.validate(request.params)
                 if flag:
                         n = gcss(**form.data)
-                        n.save();
-	return {'form':form}
+			if request.params.get('preview'):
+				response.template="preview.html"
+				return {'csscode':form.data.csscode,'jscode':form.data.jscode,\
+					'examplecode':form.data.examplecode,'preview':"1"}
+			if request.params.get('save'):
+             			n.save()
+	return {'form':form,'preview':"0"}
 
 @expose('/gcss/css')
 def css():
