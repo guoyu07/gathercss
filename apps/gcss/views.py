@@ -9,7 +9,7 @@ from uliweb import function
 
 @expose('/gcss')
 def gcss_index():
-	gacss = gcss.all()
+	gacss = gcss.all().order_by(gcss.c.datetime)
 	return {'gacss':gacss}
 
 @expose('/gcss/new')

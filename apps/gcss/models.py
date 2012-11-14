@@ -8,3 +8,6 @@ class gcss (Model):
 	jscode=Field(TEXT)
 	examplecode=Field(TEXT)
 	status=Field(CHAR)
+	datetime = Field(datetime.datetime, auto_now_add=True);
+
+
