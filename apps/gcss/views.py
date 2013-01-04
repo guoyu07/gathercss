@@ -62,7 +62,7 @@ def display(id):
 def edit(id):
 	if request.method == 'GET':
 		p = gcss.get(gcss.c.id==id)
-		form = GcssForm(data={'title':p.title,'content':p.content,'code':p.code})
+		form = GcssForm(data={'title':p.title,'content':p.content,'csscode':p.csscode,'jscode':p.jscode,'examplecode':p.examplecode})
 		return {'form':form}
 	elif request.method == 'POST':
 		form = GcssForm()
@@ -73,5 +73,6 @@ def edit(id):
 			n.content = form.data.content
 			n.csscode = form.data.csscode
 			n.jscode = form.data.jscode
+			n.examplecode = form.data.examplecode
 			n.save()
-		return redirect('/gcss');
+		return redirect('/gcss')
